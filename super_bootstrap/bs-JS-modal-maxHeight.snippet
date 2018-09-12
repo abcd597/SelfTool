@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>bs-JS-modal-maxHeight</Title>
+      <Shortcut>bs跳窗最大高</Shortcut>
+      <Description>bs-JS-modal-maxHeight</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="html">
+        <![CDATA[
+<script>
+function setBstModalMaxHeight(element) {
+  this.$$element          = $$(element);
+  this.$$modalContent     = this.$$element.find('.modal-content');
+  var $$window            = $$(window);
+  var $$modalContentOH    = this.$$modalContent.outerHeight();
+  var $$modalContentIH    = this.$$modalContent.innerHeight();
+  var _modalBorderWidth   = $$modalContentOH - $$modalContentIH;
+  var _modalDialogMargin  = $$window.width() < 768 ? 20 : 60;
+  var _modalContentHeight = $$window.height() - (_modalDialogMargin + _modalBorderWidth);
+  var _modalHeaderHeight  = this.$$element.find('.modal-header').outerHeight() || 0;
+  var _modalFooterHeight  = this.$$element.find('.modal-footer').outerHeight() || 0;
+  var _modalMaxHeight     = _modalContentHeight - (_modalHeaderHeight + _modalFooterHeight);
+
+  this.$$modalContent.css({
+      'overflow': 'hidden'
+  });
+  
+  this.$$element
+    .find('.modal-body').css({
+      'max-height': _modalMaxHeight,
+      'overflow-y': 'auto'
+  });
+}
+
+$$('.modal').on('show.bs.modal', function() {
+  $$(this).show();
+  setBstModalMaxHeight(this);
+});
+
+$$(window).resize(function() {
+  if ($$('.modal.in').length != 0) {
+    setBstModalMaxHeight($$('.modal.in'));
+  }
+});
+</script>
+      ]]></Code >
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>bs-toggle-in-sm</Title>
+      <Shortcut>bs-toggle-in-sm</Shortcut>
+      <Description>bs-toggle-in-sm</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="html">
+        <![CDATA[
+@media screen and (min-width:768px) and (max-width: 991px){
+	.navbar .container{
+		width: 100%;
+	}
+	/* 漢堡選單與頁首 */
+	.navbar-toggle{
+		display: block;
+		float: right;
+		margin-right: 0;
+	}
+	.navbar-header{
+		width: 100%;
+	}
+	/* 選單隱藏區 */
+	.collapsing.navbar-collapse{
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.collapse.navbar-collapse{
+		/* padding: 0; */
+
+		margin-left: -15px;
+		margin-right: -15px;
+		display: none!important;
+	}
+	.collapse.navbar-collapse.in{
+		display: block!important;
+	}
+	/* 選單項目 */
+	.navbar-nav{
+		margin-left: -15px;
+		margin-right: -15px;
+		float: none;
+	}
+	.navbar-nav.navbar-right,
+	.navbar-form.navbar-left{
+		float: none!important;
+		display: block;
+		padding: 0;
+	}
+	.nav>li {
+	    position: relative;
+	    display: block;
+	    width: 100%;
+	}
+	.nav>li>a {
+	    position: relative;
+	    display: block;
+	    padding: 10px 15px;
+	}
+	.navbar-nav>li>a {
+	    line-height: 20px;
+	}
+	.navbar-form{
+		position: relative;
+	}
+	.navbar-form .form-group{
+		display: block;
+	}
+	.navbar-form .btn{
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-radius:0 6px 6px 0; 
+	}
+	.navbar-form .form-control{
+		display: block;
+		width: 100%;
+	}
+}
+      ]]></Code >
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

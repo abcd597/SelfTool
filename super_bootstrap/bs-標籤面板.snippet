@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>bs-標籤面板</Title>
+      <Shortcut>bs標籤面板</Shortcut>
+      <Description>bs-標籤面板</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="html">
+        <![CDATA[
+<div role="tabpanel">
+    <!-- 標籤面板：標籤區 -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">熱門</a>
+        </li>
+        <li role="presentation">
+            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">頭條</a>
+        </li>
+        <li role="presentation">
+            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">最新</a>
+        </li>
+    </ul>
+
+    <!-- 標籤面板：內容區 -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1">熱門標籤的內容</div>
+        <div role="tabpanel" class="tab-pane" id="tab2">頭條標籤的內容</div>
+        <div role="tabpanel" class="tab-pane" id="tab3">最新標籤的內容</div>
+    </div>
+</div>
+      ]]>
+      </Code >
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
