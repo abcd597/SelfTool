@@ -1,5 +1,6 @@
->網路上找到的Bootstrap的多層NavBar，之後建立MasterPage選單列時可以用~
->當初找到時是用Bootstrap v3.3.7版寫的，下面的是改成Bootstrap4之後的
+>網路上找到的Bootstrap的多層NavBar，之後建立MasterPage選單列時可以用~  
+>當初找到時是用Bootstrap v3.3.7版寫的，下面的是改成Bootstrap4之後的  
+>另有使用到Fontawesome套件顯示登出圖案，必須inlucde CDN 或下載
 
 #### CSS & SCSS  
 css:  
