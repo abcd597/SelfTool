@@ -1,4 +1,4 @@
-# Handle result format and error message  
+# Handle API result format and error message  
   
 ## Example:  
 ### 1.Success:
