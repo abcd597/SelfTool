@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String to QR Code & codebar39</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <body>
+        <div id="form-part" class="container">
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="in-phone">請輸入手機號碼:</label>
+                    <input class="form-control" id="in-phone" placeholder="ex:0912345678" v-model="i_phone" @focus="QRed=false"></input>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-lg" type="button" @click="btn_QR()">產生QR Code</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div id="qr-part" v-show="QRed">
+                    <img :src="qr_src" /><br><br>
+                    <img :src="code39_src" />
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#form-part',
+                data: {
+                    i_phone: '',
+                    qr_src: '',
+                    code39_src:'',
+                    QRed: false
+                },
+                methods: {
+                    btn_QR: function () {
+                        this.qr_src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + this.i_phone;
+                        this.code39_src='http://www.barcodes4.me/barcode/c39/'+this.i_phone+'.png';
+                        this.QRed = true;
+                    }
+                }
+            });
+
+        </script>
+    </body>
+</html>
+
