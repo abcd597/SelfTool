@@ -9,6 +9,7 @@
 <button type="button" onclick="btn_check()">驗證</button>
 <script type="text/javascript">
 	var vtx='';
+	var vtx_all='';
 	window.onload=drawCode;
 
 	document.getElementById("valid-part").onclick = function(e){
@@ -27,10 +28,13 @@
 
 	function RandomCode_One(){
 	var CodeAll='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-	return CodeAll[Math.floor(Math.random() * Math.floor(CodeAll.length))];
+	vtx=CodeAll[Math.floor(Math.random() * Math.floor(CodeAll.length))];
+	this.vtx_all+=vtx;
+	return vtx;
 	}
 
 	function drawCode(){
+		vtx_all='';
 	var canvas=document.getElementById('valid-part');
 	var ctx=canvas.getContext('2d');
 	ctx.clearRect(0,0,80,30);
@@ -39,10 +43,11 @@
 	for(var i=0;i<4;i++){
 	drawTxt(ctx,i);
 	}
+	console.log(this.vtx_all);
 	}
 
 	function btn_check(){
-	if(document.getElementById('input_code').value.toUpperCase()==this.vtx){
+	if(document.getElementById('input_code').value.toUpperCase()==this.vtx_all){
 	alert('Correct!');
 	}
 	else{
