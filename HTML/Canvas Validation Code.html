@@ -4,16 +4,18 @@
 	<title>Validation Code With Canvas</title>
 </head>
 <body>
-<canvas id="valid-part" width="80" height="40"></canvas>
+<canvas id="valid-part" width="80" height="30"></canvas>
 <input type="text" name="" id="input_code">
 <button type="button" onclick="btn_check()">驗證</button>
 <script type="text/javascript">
 	var vtx='';
 	window.onload=drawCode;
+
 	document.getElementById("valid-part").onclick = function(e){
 	e.preventDefault();
 	drawCode();
 	};
+
 	function RandomCode(){
 	vtx='';
 	var CodeAll='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -22,17 +24,23 @@
 	}
 	return vtx;
 	}
+
+	function RandomCode_One(){
+	var CodeAll='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+	return CodeAll[Math.floor(Math.random() * Math.floor(CodeAll.length))];
+	}
+
 	function drawCode(){
 	var canvas=document.getElementById('valid-part');
 	var ctx=canvas.getContext('2d');
-	ctx.clearRect(0,10,80,30);
-	ctx.fillStyle='rgba(0,0,0,0.3)';
-	ctx.strokeRect(0,10,80,30);
-	ctx.font='italic bold 24px monospace';
-	ctx.textAlign='center';
-	ctx.fillStyle ='rgba(50,40,180,1)';
-	ctx.fillText(RandomCode(),40,33,150);
+	ctx.clearRect(0,0,80,30);
+	ctx.fillStyle='rgba(0,0,0,1)';
+	ctx.strokeRect(0,0,80,30);
+	for(var i=0;i<4;i++){
+	drawTxt(ctx,i);
 	}
+	}
+
 	function btn_check(){
 	if(document.getElementById('input_code').value.toUpperCase()==this.vtx){
 	alert('Correct!');
@@ -43,6 +51,18 @@
 	}
 	}
 
+	function drawTxt(ctx,i){
+	ctx.font='italic bold '+getRandomInt(15,28)+'px monospace';
+	ctx.textAlign='center';
+	ctx.fillStyle ='rgba('+getRandomInt(0,180)+','+getRandomInt(0,180)+','+getRandomInt(0,180)+',1)';
+	ctx.fillText(RandomCode_One(),18+i*15,23);
+	}
+
+	function getRandomInt(min, max) {
+  	min = Math.ceil(min);
+  	max = Math.floor(max);
+  	return Math.floor(Math.random() * (max - min)) + min; 
+	}
 
 </script>
 </body>
