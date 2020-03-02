@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validation Code With Canvas</title>
+</head>
+<body>
+<canvas id="valid-part" width="80" height="40"></canvas>
+<input type="text" name="" id="input_code">
+<button type="button" onclick="btn_check()">驗證</button>
+<script type="text/javascript">
+	var vtx='';
+	window.onload=drawCode;
+	document.getElementById("valid-part").onclick = function(e){
+	e.preventDefault();
+	drawCode();
+	};
+	function RandomCode(){
+	vtx='';
+	var CodeAll='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+	for(var i=0;i<4;i++){
+	vtx+=CodeAll[Math.floor(Math.random() * Math.floor(CodeAll.length))];	
+	}
+	return vtx;
+	}
+	function drawCode(){
+	var canvas=document.getElementById('valid-part');
+	var ctx=canvas.getContext('2d');
+	ctx.clearRect(0,10,80,30);
+	ctx.fillStyle='rgba(0,0,0,0.3)';
+	ctx.strokeRect(0,10,80,30);
+	ctx.font='italic bold 24px monospace';
+	ctx.textAlign='center';
+	ctx.fillStyle ='rgba(50,40,180,1)';
+	ctx.fillText(RandomCode(),40,33,150);
+	}
+	function btn_check(){
+	if(document.getElementById('input_code').value.toUpperCase()==this.vtx){
+	alert('Correct!');
+	}
+	else{
+	alert('Wrong!');
+	drawCode();
+	}
+	}
+
+
+</script>
+</body>
+</html>
