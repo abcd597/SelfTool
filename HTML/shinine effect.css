@@ -1,0 +1,19 @@
+.shinyalert {
+        
+        -webkit-animation: 2s linear infinite condemned_blink_effect; 
+        animation: 2s linear infinite condemned_blink_effect;
+        }
+        @keyframes condemned_blink_effect {
+    0% {
+        color:white;
+    }
+    50% {
+        color:white;
+    }
+    51% {
+        color:red;
+    }
+    100% {
+        color:red;
+    }
+}
